@@ -12,7 +12,7 @@ body {
 
 
 :root {
-  --color-accent: #1e90ff;
+  --color-accent: oklch(0.61 0.17 238.97);
 }
 
 
