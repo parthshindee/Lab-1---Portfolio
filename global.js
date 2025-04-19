@@ -10,17 +10,13 @@ const pages = [
   { url: "projects/",   title: "Projects" },
   { url: "resume/",     title: "Resume"   },
   { url: "",            title: "Home"     },
-  { url: "index.html",            title: "Home"     },
-  { url: "contact/index.html",    title: "Contact"  },
-  { url: "projects/index.html",   title: "Projects" },
-  { url: "resume/index.html",     title: "Resume"   },
   { url: "https://github.com/parthshindee", title: "GitHub" }
 ];
 
 const BASE_PATH = 
   (location.hostname === "localhost" || location.hostname === "127.0.0.1")
     ? "/"
-    : "/website/";
+    : "/Lab-1---Portfolio/";
 
 const nav = document.createElement("nav");
 
@@ -45,7 +41,7 @@ for (let {url, title} of pages) {
   nav.append(a);
 }
 
-document.body.prepend(nav);
+document.body.append(nav);
 
 const switcherHTML = `
   <label class="color-scheme-switcher" title="Color Scheme">
