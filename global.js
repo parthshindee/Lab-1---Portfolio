@@ -46,3 +46,42 @@ for (let {url, title} of pages) {
 }
 
 document.body.prepend(nav);
+
+const switcherHTML = `
+  <label class="color-scheme-switcher" title="Color Scheme">
+    Theme:
+    <select>
+      <option value="light dark">Auto</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+`;
+
+document.body.insertAdjacentHTML('afterbegin', switcherHTML);
+
+const select = document.querySelector('.color-scheme-switcher select');
+
+function setColorScheme(scheme) {
+  document.documentElement.style.setProperty('color-scheme', scheme);
+  localStorage.colorScheme = scheme;
+  select.value = scheme;
+}
+
+const saved = localStorage.colorScheme;
+if (saved === 'light' || saved === 'dark' || saved === 'light dark') {
+  setColorScheme(saved);
+} else {
+  document.documentElement.style.removeProperty('color-scheme');
+  select.value = 'light dark';
+}
+
+select.addEventListener('input', (e) => {
+  const scheme = e.target.value;
+  if (scheme === 'light' || scheme === 'dark') {
+    setColorScheme(scheme);
+  } else {
+    document.documentElement.style.removeProperty('color-scheme');
+    localStorage.removeItem('colorScheme');
+  }
+});
