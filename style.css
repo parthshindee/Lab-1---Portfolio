@@ -1,106 +1,121 @@
 body {
-    font: 100%/1.5 system-ui;
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
+  font: 100%/1.5 system-ui;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
 
-    max-width: 75ch;
+  max-width: 75ch;
 
-    margin-inline: max(1rem, (100% - 75ch) / 2);
+  margin-inline: max(1rem, (100% - 75ch) / 2);
 
-    padding-block: 1rem;
-
-
-    :root {
-      --color-accent: oklch(65% 50% 0);
-    }
-
-    html {
-      accent-color: var(--color-accent);
-    }
+  padding-block: 1rem;
+}
 
 
-    nav ul,
-    nav li {
-      display: contents;
-    }
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
 
-    nav {
-      display: flex;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid oklch(80% 3% 200);
-    }
 
-    nav a {
-      flex: 1;
-      text-decoration: none;
-      color: inherit;
-      text-align: center;
-      padding: 0.5em;
-    }
+html {
+  accent-color: var(--color-accent);
+}
 
-    nav a.current {
-      border-bottom: 0.4em solid oklch(80% 3% 200);
-      padding-bottom: calc(0.5em - 0.4em);
-    }
 
-    nav a:hover {
-      border-bottom: 0.4em solid var(--color-accent);
-      background-color: oklch(from var(--color-accent) 95% 5% h);
-    }
-    form input,
-    form textarea,
-    form button {
-      font: inherit;
-    }
+nav ul,
+nav li {
+  display: contents;
+}
 
-    form {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1em;
-    }
 
-    form > label,
-    form > button {
-      grid-column: 1 / -1;
-    }
+nav {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid oklch(80% 3% 200);
+}
 
-    form > label {
-      display: grid;
-      grid-template-columns: subgrid;
-    }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(15em, 1fr)
-      );
-      gap: 1em;
-      margin: 2em auto;
-      padding-inline: 1em;
-    }    
+nav a {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  padding: 0.5em;
+}
 
-    .projects > article {
-      display: grid;
-      grid-template-rows: subgrid;
-      grid-row: span 3;
-      gap: 0.5em;
-      background: white;
-      border: 1px solid #ddd;
-      padding: 1em;
-    }
 
-    .projects > article h2 {
-      margin: 0;
-    }
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: calc(0.5em - 0.4em);
+}
 
-    h1, h2, h3, h4, h5, h6 {
-      line-height: 1.1;
-      text-wrap: balance;
-    }
 
-    .projects h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-  }
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+
+form input,
+form textarea,
+form button {
+  font: inherit;
+}
+
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+
+form > label,
+form > button {
+  grid-column: 1 / -1;
+}
+
+
+form > label {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(15em, 1fr)
+  );
+  gap: 1em;
+  margin: 2em auto;
+  padding-inline: 1em;
+}    
+
+
+.projects > article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+
+
+.projects > article h2 {
+  margin: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+
+.projects h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
