@@ -123,3 +123,120 @@ body.projects-page h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
 }
+
+
+body.resume-page {
+  background-color: oklch(98% 2% 270);  /* very light gray */
+}
+body.resume-page main {
+  max-width: 65ch;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+}
+
+
+body.resume-page h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+
+body.resume-page section {
+  margin-bottom: 2rem;
+}
+body.resume-page section > header h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--color-accent);
+  color: oklch(20% 10% 250);
+}
+
+
+#work-experience {
+  display: grid;
+  gap: 1.5rem;
+}
+#work-experience article {
+  padding-left: 1rem;
+  border-left: 4px solid var(--color-accent);
+}
+#work-experience article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+#work-experience article header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+#work-experience article header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: oklch(40% 5% 260);
+}
+#work-experience article ul {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+  list-style: disc;
+}
+
+
+#projects ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#projects ul li {
+  background: oklch(100% 0% 0);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+#projects ul li h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+}
+#projects ul li p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+  columns: 2;
+  column-gap: 2rem;
+}
+#skills li {
+  margin-bottom: 0.5rem;
+}
+
+
+#contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+#contact-info li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+#contact-info a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+#contact-info a:hover {
+  text-decoration: underline;
+}
