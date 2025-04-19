@@ -84,10 +84,7 @@ form > label {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(15em, 1fr)
-  );
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
   margin: 2em auto;
   padding-inline: 1em;
@@ -113,6 +110,12 @@ form > label {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+
+body.projects-page h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
 }
 
 
