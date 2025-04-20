@@ -238,3 +238,23 @@ body.resume-page #contact-info a {
 body.resume-page #contact-info a:hover {
   text-decoration: underline;
 }
+
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4em 0.8em;
+  font: inherit;
+  background: var(--color-accent);
+  color: canvas;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background: color-mix(in oklch, var(--color-accent) 80%, canvas 20%);
+}

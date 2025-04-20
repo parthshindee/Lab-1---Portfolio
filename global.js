@@ -4,6 +4,10 @@ function $$(selector, ctx = document) {
   return Array.from(ctx.querySelectorAll(selector));
 }
 
+// ───────────────────────────────────
+// NAV BAR
+// ───────────────────────────────────
+
 const pages = [
   { url: "",            title: "Home"     },
   { url: "contact/",    title: "Contact"  },
@@ -42,41 +46,32 @@ for (let {url, title} of pages) {
 
 document.body.append(nav);
 
-const switcherHTML = `
-  <label class="color-scheme-switcher" title="Color Scheme">
-    Theme:
-    <select>
-      <option value="light dark">Auto</option>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-    </select>
-  </label>
-`;
+// ───────────────────────────────────
+// DARK MODE TOGGLE BUTTON
+// ───────────────────────────────────
 
-document.body.insertAdjacentHTML('afterbegin', switcherHTML);
+const btn = document.createElement("button");
+btn.className = "theme-toggle";
+btn.type = "button";
+btn.textContent = "Toggle Dark Mode";
 
-const select = document.querySelector('.color-scheme-switcher select');
+document.body.prepend(btn);
 
-function setColorScheme(scheme) {
-  document.documentElement.style.setProperty('color-scheme', scheme);
-  localStorage.colorScheme = scheme;
-  select.value = scheme;
-}
-
-const saved = localStorage.colorScheme;
-if (saved === 'light' || saved === 'dark' || saved === 'light dark') {
-  setColorScheme(saved);
-} else {
-  document.documentElement.style.removeProperty('color-scheme');
-  select.value = 'light dark';
-}
-
-select.addEventListener('input', (e) => {
-  const scheme = e.target.value;
-  if (scheme === 'light' || scheme === 'dark') {
-    setColorScheme(scheme);
+function applyDarkMode(enable) {
+  if (enable) {
+    document.documentElement.style.setProperty("color-scheme", "dark");
+    localStorage.setItem("darkMode", "true");
   } else {
-    document.documentElement.style.removeProperty('color-scheme');
-    localStorage.removeItem('colorScheme');
+    document.documentElement.style.removeProperty("color-scheme");
+    localStorage.removeItem("darkMode");
   }
+}
+
+if (localStorage.getItem("darkMode") === "true") {
+  applyDarkMode(true);
+}
+
+btn.addEventListener("click", () => {
+  const isDark = document.documentElement.style.getPropertyValue("color-scheme") === "dark";
+  applyDarkMode(!isDark);
 });
