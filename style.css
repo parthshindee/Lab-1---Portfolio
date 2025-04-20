@@ -17,6 +17,7 @@ body {
 
 
 html {
+  color-scheme: light dark;
   accent-color: var(--color-accent);
 }
 
@@ -30,7 +31,8 @@ nav li {
 nav {
   display: flex;
   margin-bottom: 1rem;
-  border-bottom: 1px solid oklch(80% 3% 200);
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 
@@ -96,8 +98,10 @@ form > label {
   grid-template-rows: subgrid;
   grid-row: span 3;
   gap: 0.5em;
-  background: white;
-  border: 1px solid #ddd;
+  background: canvas;
+  color: canvastext;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.1);
   padding: 1em;
 }
 
@@ -132,9 +136,10 @@ body.resume-page main {
   max-width: 65ch;
   margin: 2rem auto;
   padding: 2rem 1rem;
-  background: white;
+  background: canvas;
+  color: canvastext;
   border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+  box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.1);
 }
 body.resume-page h1 {
   text-align: center;
@@ -196,10 +201,11 @@ body.resume-page #projects ul {
   list-style: none;
 }
 body.resume-page #projects ul li {
-  background: white;
+  background: canvas;
+  color: canvastext;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+  box-shadow: 0 0.125em 0.25em rgba(0,0,0,0.1);
 }
 body.resume-page #projects ul li h3 {
   margin-top: 0;
