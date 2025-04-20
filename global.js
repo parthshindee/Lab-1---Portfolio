@@ -1,4 +1,4 @@
-console.log("IT’S ALIVE!");
+console.log("IT'S ALIVE!");
 
 function $$(selector, ctx = document) {
   return Array.from(ctx.querySelectorAll(selector));
@@ -72,6 +72,7 @@ if (localStorage.getItem("darkMode") === "true") {
 }
 
 btn.addEventListener("click", () => {
-  const isDark = document.documentElement.style.getPropertyValue("color-scheme") === "dark";
+  const inline = document.documentElement.style.getPropertyValue("color-scheme");
+  const isDark = inline === "dark";
   applyDarkMode(!isDark);
 });
