@@ -13,12 +13,15 @@ body {
 
 :root {
   --color-accent: oklch(0.61 0.17 238.97);
+  --border-color: oklch(50% 10% 200 / 40%);
 }
 
 
 html {
   color-scheme: light dark;
   accent-color: var(--color-accent);
+  background: canvas;
+  color: canvastext;
 }
 
 
@@ -31,7 +34,6 @@ nav li {
 nav {
   display: flex;
   margin-bottom: 1rem;
-  --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -130,7 +132,8 @@ body.projects-page h1 {
 
 
 body.resume-page {
-  background: oklch(98% 2% 270);
+  background: canvas;
+  color: canvastext;
 }
 body.resume-page main {
   max-width: 65ch;
@@ -157,8 +160,8 @@ body.resume-page section > header h2 {
   font-size: 1.75rem;
   margin: 0 0 0.5rem;
   padding-bottom: 0.25rem;
-  border-bottom: 2px solid var(--color-accent);
-  color: oklch(20% 10% 250);
+  border-bottom: 2px solid var(--border-color);
+  color: canvastext;
 }
 
 
