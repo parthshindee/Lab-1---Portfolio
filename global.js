@@ -54,25 +54,31 @@ const btn = document.createElement("button");
 btn.className = "theme-toggle";
 btn.type = "button";
 btn.textContent = "Toggle Dark Mode";
-
 document.body.prepend(btn);
 
-function applyDarkMode(enable) {
-  if (enable) {
-    document.documentElement.style.setProperty("color-scheme", "dark");
-    localStorage.setItem("darkMode", "true");
-  } else {
-    document.documentElement.style.removeProperty("color-scheme");
-    localStorage.removeItem("darkMode");
-  }
+
+function setOverride(scheme) {
+  document.documentElement.style.setProperty("color-scheme", scheme);
+  localStorage.setItem("themeOverride", scheme);
+}
+function clearOverride() {
+  document.documentElement.style.removeProperty("color-scheme");
+  localStorage.removeItem("themeOverride");
 }
 
-if (localStorage.getItem("darkMode") === "true") {
-  applyDarkMode(true);
+
+const saved = localStorage.getItem("themeOverride");
+if (saved === "dark" || saved === "light") {
+  setOverride(saved);
 }
+
 
 btn.addEventListener("click", () => {
-  const inline = document.documentElement.style.getPropertyValue("color-scheme");
-  const isDark = inline === "dark";
-  applyDarkMode(!isDark);
+  const override = document.documentElement.style.getPropertyValue("color-scheme");
+  if (override) {
+    clearOverride();
+  } else {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setOverride(prefersDark ? "light" : "dark");
+  }
 });
